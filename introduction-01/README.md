@@ -1,6 +1,6 @@
 # What is Axum?
 
-[`axum`] is a **modular** web framework built with [`tokio`], [`tower`] and [`hyper`] written in [rust] by [davidpdrsn].
+[`axum`] is a **modular** web framework built with [`tokio`], [`tower`] and [`hyper`] written in [rust] by the [tokio team].
 
 Some history: This framework is named after a [weird obelisk](https://en.wikipedia.org/wiki/Obelisk_of_Axum) built in ancient times in Ethiopia. [davidpdrsn] decided to name it like this because "axum" sounds cool and that obelisk looks like a [`tower`].
 
@@ -21,9 +21,10 @@ Lets start learning with basic stuff.
 
 *Hello World Example Link*
 
-[rust]: https://www.rust-lang.org/
 [`axum`]: https://github.com/tokio-rs/axum
 [`tokio`]: https://github.com/tokio-rs/tokio
 [`tower`]: https://github.com/tower-rs/tower
 [`hyper`]: https://github.com/hyperium/hyper
+[rust]: https://www.rust-lang.org/
+[tokio team]: https://github.com/tokio-rs
 [davidpdrsn]: https://github.com/davidpdrsn
