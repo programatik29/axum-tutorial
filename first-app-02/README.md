@@ -8,7 +8,7 @@ We can create a rust project using cargo tool.
 cargo new first-app
 ```
 
-Structuore of a rust project looks like this:
+Structure of a rust project looks like this:
 
 ```
 first-app/
