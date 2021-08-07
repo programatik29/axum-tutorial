@@ -12,7 +12,8 @@ Sections below will teach stuff by example. Because only reading tons of pages i
 
 To run examples you are going to need *a browser* and you need to [install rust] if you haven't already.
 
-1. [Introduction](introduction-01)
+1. [Introduction](./introduction-01)
+2. [First App](./first-app-02)
 
 [rust]: https://www.rust-lang.org/
 [install rust]: https://www.rust-lang.org/learn/get-started
