@@ -10,7 +10,7 @@ axum = "0.1.3"
 
 ## Code
 
-We can use [`include_str`] macro to include a `UTF-8` file as `&'static str`. [`Html`] can be used to set `text/html` content-type on request easily.
+We can use [`include_str`] macro to include a `UTF-8` file as `&'static str`. [`Html`] can be used to set `text/html` content-type on response easily.
 
 [`include_str`] macro works relative to `src/` directory in the project.
 
