@@ -100,7 +100,7 @@ Enter `http://localhost:3000/` on your browser.
 
 Previous: [Introduction](../01-introduction)
 
-Next: [Generate Random Number](./03-generate-random-number)
+Next: [Generate Random Number](../03-generate-random-number)
 
 [`axum`]: https://github.com/tokio-rs/axum
 [`tokio`]: https://github.com/tokio-rs/tokio
