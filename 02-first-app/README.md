@@ -98,7 +98,8 @@ cargo run
 
 Enter `http://localhost:3000/` on your browser.
 
-Previous: [Introduction](../introduction-01)
+Previous: [Introduction](../01-introduction)
+
 Next: *To be continued*
 
 [`axum`]: https://github.com/tokio-rs/axum

@@ -19,7 +19,7 @@ When you do common stuff, *any* framework would do. As your needs start to get c
 
 Lets start learning with basic stuff.
 
-Next: [First App](../first-app-02)
+Next: [First App](../02-first-app)
 
 [`axum`]: https://github.com/tokio-rs/axum
 [`tokio`]: https://github.com/tokio-rs/tokio
