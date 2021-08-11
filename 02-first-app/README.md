@@ -98,6 +98,8 @@ cargo run
 
 Enter `http://localhost:3000/` on your browser.
 
+## Links
+
 Previous: [Introduction](../01-introduction)
 
 Next: [Generate Random Number](../03-generate-random-number)

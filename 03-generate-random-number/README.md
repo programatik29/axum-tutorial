@@ -216,6 +216,8 @@ async fn handler(Query(range): Query<RangeParameters>) -> String {
 
 Enter `http://localhost:3000/?start=50&end=100` on your browser.
 
+## Links
+
 Previous: [First App](../02-first-app)
 
 Next: [Include Html](../04-include-html)
