@@ -218,7 +218,7 @@ Enter `http://localhost:3000/?start=50&end=100` on your browser.
 
 Previous: [First App](../02-first-app)
 
-Next: *To be continued*
+Next: [Include Html](../04-include-html)
 
 [`tokio`]: https://github.com/tokio-rs/tokio
 [`tower`]: https://github.com/tower-rs/tower

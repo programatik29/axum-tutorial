@@ -2,5 +2,6 @@
 
 members = [
 	"first-app",
-	"generate-random-number"
+	"generate-random-number",
+	"include-html"
 ]

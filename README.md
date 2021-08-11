@@ -15,6 +15,7 @@ To run examples you are going to need *a browser* and you need to [install rust]
 1. [Introduction](./01-introduction)
 2. [First App](./02-first-app)
 3. [Generate Random Number](./03-generate-random-number)
+4. [Include Html](./04-include-html)
 
 [rust]: https://www.rust-lang.org/
 [install rust]: https://www.rust-lang.org/learn/get-started
