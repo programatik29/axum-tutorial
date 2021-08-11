@@ -40,7 +40,7 @@ Now add `first-app` into square brackets. `Cargo.toml` of workspace should look 
 [workspace]
 
 members = [
-	"first-app"
+    "first-app"
 ]
 ```
 
@@ -54,8 +54,8 @@ Add the name of your new project in members.
 [workspace]
 
 members = [
-	"first-app",
-	"generate-random-number"
+    "first-app",
+    "generate-random-number"
 ]
 ```
 
@@ -150,8 +150,8 @@ use serde::Deserialize;
 
 #[derive(Deserialize)]
 struct RangeParameters {
-	start: usize,
-	end: usize
+    start: usize,
+    end: usize
 }
 ```
 
