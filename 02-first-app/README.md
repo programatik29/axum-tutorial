@@ -34,7 +34,7 @@ edition = "2018"
 To create [`axum`] app, [`tokio`] as async runtime is needed. Lets add it below `[dependencies]`.
 
 ```
-tokio = { version = "1.9.0", features = ["full"] }
+tokio = { version = "1.11.0", features = ["full"] }
 ```
 
 [`tokio`] has many features, but those are optional and you can choose the features. For convenience `features = ["full"]` can be used.
@@ -42,7 +42,7 @@ tokio = { version = "1.9.0", features = ["full"] }
 Add [`axum`].
 
 ```
-axum = "0.1.3"
+axum = "0.2.5"
 ```
 
 Note: Ordering of dependencies does not matter. If you put axum above tokio, nothing will change.
@@ -65,18 +65,18 @@ async fn main() {
 Import [`axum`] modules into scope by putting the code above at the top.
 
 ```rust
-use axum::prelude::*;
+use axum::{handler::get, Router};
 ```
 
 Create an [`axum`] app that responds `Hello, world!` to requests on "/" endpoint and start the server.
 
 ```rust
+use axum::{handler::get, Router};
 use std::net::SocketAddr;
-use axum::prelude::*;
 
 #[tokio::main]
 async fn main() {
-    let app = route("/", get(|| async { "Hello, axum!" }));
+    let app = Router::new().route("/", get(|| async { "Hello, axum!" }));
 
     // Bind to 127.0.0.1(aka localhost) address and 3000 port.
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));

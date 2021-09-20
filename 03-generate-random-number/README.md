@@ -73,8 +73,8 @@ authors = ["Programatik <programatik29@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-tokio = { version = "1.9.0", features = ["full"] }
-axum = "0.1.3"
+tokio = { version = "1.11.0", features = ["full"] }
+axum = "0.2.5"
 rand = "0.8.4"
 serde = { version = "1", features = ["derive"] }
 ```
@@ -86,12 +86,12 @@ In this tutorial, objective is generating a random number in a range defined by 
 We can start by copy pasting code of our first app. Then we can improve on that code.
 
 ```rust
+use axum::{handler::get, Router};
 use std::net::SocketAddr;
-use axum::prelude::*;
 
 #[tokio::main]
 async fn main() {
-    let app = route("/", get(|| async { "Hello, axum!" }));
+    let app = Router::new().route("/", get(|| async { "Hello, axum!" }));
 
     // Bind to 127.0.0.1(aka localhost) address and 3000 port.
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
@@ -106,12 +106,12 @@ async fn main() {
 Instead of using a closure(double pipes that generate anonymous function `||`) and async block, we can use an async function.
 
 ```rust
+use axum::{handler::get, Router};
 use std::net::SocketAddr;
-use axum::prelude::*;
 
 #[tokio::main]
 async fn main() {
-    let app = route("/", get(handler));
+    let app = Router::new().route("/", get(handler));
 
     // Bind to 127.0.0.1(aka localhost) address and 3000 port.
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
@@ -133,9 +133,9 @@ Difference of `async fn` from `fn` is that we can use `.await` in async function
 
 Now that we separated some part of our code, our code looks cleaner and ready for further modifications.
 
-To make our job easier, [`axum`] has pre-built [extractors](https://docs.rs/axum/0.1.3/axum/extract/index.html#structs) ready to use. What an extractor does is extracting a part of request.
+To make our job easier, [`axum`] has pre-built [extractors](https://docs.rs/axum/0.2.5/axum/extract/index.html#structs) ready to use. What an extractor does is extracting a part of request.
 
-For this tutorial, we need [`Query`](https://docs.rs/axum/0.1.3/axum/extract/struct.Query.html) extractor.
+For this tutorial, we need [`Query`](https://docs.rs/axum/0.2.5/axum/extract/struct.Query.html) extractor.
 
 We need a type that implements `Deserialize` to use this extractor. But what is that and how can we use it?
 
@@ -181,14 +181,10 @@ We are not using `&'static str` anymore as our return type, because we are creat
 After bringing imports at the top, code should look like:
 
 ```rust
-use std::net::SocketAddr;
-
-use axum::prelude::*;
-use axum::extract::Query;
-
+use axum::{extract::Query, handler::get, Router};
 use rand::{thread_rng, Rng};
-
 use serde::Deserialize;
+use std::net::SocketAddr;
 
 #[derive(Deserialize)]
 struct RangeParameters {
@@ -198,7 +194,7 @@ struct RangeParameters {
 
 #[tokio::main]
 async fn main() {
-    let app = route("/", get(handler));
+    let app = Router::new().route("/", get(handler));
 
     // Bind to 127.0.0.1(aka localhost) address and 3000 port.
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
