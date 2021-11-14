@@ -1,6 +1,6 @@
 # Include Html
 
-Add project name to [workspace toml](workspace/Cargo.toml).
+Add project name to [workspace toml].
 
 ```toml
 [workspace]
@@ -59,3 +59,5 @@ async fn handler() -> Html<&'static str> {
 ## Next
 
 To be continued.
+
+[workspace toml]: https://github.com/programatik29/axum-tutorial/blob/master/workspace/Cargo.toml

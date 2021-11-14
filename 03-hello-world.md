@@ -1,6 +1,6 @@
 # Hello World
 
-Add project name to [workspace toml](workspace/Cargo.toml).
+Add project name to [workspace toml].
 
 ```toml
 [workspace]
@@ -86,3 +86,4 @@ Create an application that responds with a random number from query parameters.
 
 [axum]: https://crates.io/crates/axum
 [tokio]: https://crates.io/crates/tokio
+[workspace toml]: https://github.com/programatik29/axum-tutorial/blob/master/workspace/Cargo.toml

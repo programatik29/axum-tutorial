@@ -1,6 +1,6 @@
 # Generate Random Number
 
-Add project name to [workspace toml](workspace/Cargo.toml).
+Add project name to [workspace toml].
 
 ```toml
 [workspace]
@@ -91,3 +91,4 @@ Include html from file in compile time.
 [axum]: https://crates.io/crates/axum
 [rand]: https://crates.io/crates/rand
 [serde]: https://crates.io/crates/serde
+[workspace toml]: https://github.com/programatik29/axum-tutorial/blob/master/workspace/Cargo.toml
