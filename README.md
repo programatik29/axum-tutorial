@@ -1,25 +1,23 @@
 # Axum Tutorial For Beginners
 
-Hello (future) web developers! This tutorial will cover how to write simple web applications in [rust] with [`axum`] framework. One of our goals in this tutorial is making it possible for a total rust and web beginner to learn coding with [rust] and [`axum`]. If you are a beginner, hopefully you will be comfortable.
+Hello web developers! This tutorial will cover how to write simple web
+applications in [rust] with [axum] framework.
 
-We will do our best to explain [rust] language but reading [the book] is suggested.
+If you are new to [rust], reading [the book] is recommended.
 
-If you are confused or having hard time understanding what is going on you can come to our [discord channel] and ask for help. You can also open an [issue].
+If you are confused or having hard time understanding what is going on you can
+come to our [discord channel] and ask for help. You can also open an [issue].
 
-## Tutorial
+## Contents
 
-Sections below will teach stuff by example. Because only reading tons of pages is boring and will melt your brain.
+1. [Introduction](01-introduction.md)
+2. [Layout](02-layout.md)
+3. [First App](03-first-app.md)
+4. [Generate Random Number](04-generate-random-number.md)
+5. [Include Html](05-include-html.md)
 
-To run examples you are going to need *a browser* and you need to [install rust] if you haven't already.
-
-1. [Introduction](./01-introduction)
-2. [First App](./02-first-app)
-3. [Generate Random Number](./03-generate-random-number)
-4. [Include Html](./04-include-html)
-
-[rust]: https://www.rust-lang.org/
-[install rust]: https://www.rust-lang.org/learn/get-started
-[the book]: https://doc.rust-lang.org/book/
+[axum]: https://github.com/tokio-rs/axum
 [discord channel]: https://discord.gg/tokio
 [issue]: https://github.com/programatik29/issues/new
-[`axum`]: https://github.com/tokio-rs/axum
+[rust]: https://www.rust-lang.org/
+[the book]: https://doc.rust-lang.org/book/

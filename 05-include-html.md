@@ -1,3 +1,39 @@
+# Include Html
+
+Add project name to [workspace toml](workspace/Cargo.toml).
+
+```toml
+[workspace]
+
+members = [
+	"hello-world",
+	"generate-random-number",
+    "include-html", # <--
+]
+```
+
+Create the project.
+
+```
+cargo new include-html
+```
+
+## Dependencies
+
+```toml
+[package]
+name = "include-html"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.3"
+tokio = { version = "1", features = ["full"] }
+```
+
+## Code
+
+```rust
 use axum::{response::Html, routing::get, Router};
 use std::net::SocketAddr;
 
@@ -18,3 +54,8 @@ async fn handler() -> Html<&'static str> {
     // time. This method is relative to current `main.rs` file.
     Html(include_str!("../index.html"))
 }
+```
+
+## Next
+
+To be continued.

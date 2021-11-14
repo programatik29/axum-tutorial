@@ -1,11 +1,10 @@
 [package]
 name = "generate-random-number"
 version = "0.1.0"
-authors = ["Programatik <programatik29@gmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
-tokio = { version = "1.11.0", features = ["full"] }
-axum = "0.2.5"
-rand = "0.8.4"
+axum = "0.3"
+rand = "0.8"
 serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }

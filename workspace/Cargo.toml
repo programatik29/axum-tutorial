@@ -1,7 +1,7 @@
 [workspace]
 
 members = [
-	"first-app",
-	"generate-random-number",
-	"include-html"
+	"hello-world",
+    "generate-random-number",
+    "include-html",
 ]
