@@ -12,7 +12,7 @@ come to our [discord channel] and ask for help. You can also open an [issue].
 
 1. [Introduction](01-introduction.md)
 2. [Layout](02-layout.md)
-3. [First App](03-first-app.md)
+3. [Hello World](03-hello-world.md)
 4. [Generate Random Number](04-generate-random-number.md)
 5. [Include Html](05-include-html.md)
 
