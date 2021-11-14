@@ -17,8 +17,7 @@ modularity.
 
 ## Why use Axum?
 
-[axum] doesn't reinvent everything. In fact [axum] is just a tool to create
-[tower] abstractions that saves you writing tons of boilerplate.
+[axum] doesn't reinvent everything.
 
 Commonly, an [axum] app uses:
 
