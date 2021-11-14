@@ -6,7 +6,7 @@ Add project name to [workspace toml](workspace/Cargo.toml).
 [workspace]
 
 members = [
-	"hello-world", # <--
+    "hello-world", # <--
 ]
 ```
 

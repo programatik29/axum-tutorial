@@ -6,8 +6,8 @@ Add project name to [workspace toml](workspace/Cargo.toml).
 [workspace]
 
 members = [
-	"hello-world",
-	"generate-random-number",
+    "hello-world",
+    "generate-random-number",
     "include-html", # <--
 ]
 ```

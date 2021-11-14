@@ -1,7 +1,7 @@
 [workspace]
 
 members = [
-	"hello-world",
+    "hello-world",
     "generate-random-number",
     "include-html",
 ]
