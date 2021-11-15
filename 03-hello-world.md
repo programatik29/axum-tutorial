@@ -85,5 +85,6 @@ Enter `http://localhost:3000` in browser.
 Create an application that responds with a random number from query parameters.
 
 [axum]: https://crates.io/crates/axum
+[rust]: https://www.rust-lang.org
 [tokio]: https://crates.io/crates/tokio
 [workspace toml]: https://github.com/programatik29/axum-tutorial/blob/master/workspace/Cargo.toml
