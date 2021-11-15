@@ -1,17 +1,13 @@
-# Introduction
+# Axum
 
-## What is Axum?
-
-[axum] is a web application framework that focuses on ergonomics and
-modularity.
+Axum is a web application framework for writing HTTP applications with Rust and focuses on ergonomics and modularity.
 
 ### Modularity
 
 [axum] is built on [tower] abstractions. Those abstractions:
 
-- Are protocol agnostic. Which means you can use same code for multiple
-  protocols like http and grpc.
-- Has built in middlewares and utilities which you can use with [axum].
+- Are protocol agnostic. Which means you can use same code for multiple protocols like HTTP and gRPC.
+- Have built-in middleware and utilities which you can use with [axum].
 - Allow lower level access. This makes it easy to create libraries to work with
   [axum]. You can find useful libraries [here][ecosystem].
 
@@ -21,15 +17,11 @@ modularity.
 
 Commonly, an [axum] app uses:
 
-- [tokio] for async runtime and utilities, 
-- [hyper] for http server.
+- [hyper] for HTTP server.
+- [tokio] for async runtime and utilities,
 - [tower] and [tower-http] for middleware and utilities.
 
 All of those libraries are very well tested, maintained and used in production.
-
-# [Next](02-layout.md)
-
-Overview of [axum] project layouts.
 
 [axum]: https://github.com/tokio-rs/axum
 [ecosystem]: https://github.com/tokio-rs/axum/blob/main/ECOSYSTEM.md

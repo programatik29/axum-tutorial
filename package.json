@@ -1,0 +1,14 @@
+{
+  "name": "axum-tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/michaelgrigoryan25/axum-tutorial.git",
+  "author": "Michael Grigoryan <56165400+michaelgrigoryan25@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "docsify": "^4.12.1"
+  },
+  "scripts": {
+    "start": "docsify serve ./docs/"
+  }
+}
