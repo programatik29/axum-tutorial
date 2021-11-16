@@ -1,30 +1,8 @@
 # Generate Random Number
 
-Add project name to [workspace toml].
-
-```toml
-[workspace]
-
-members = [
-    "hello-world",
-    "generate-random-number", # <--
-]
-```
-
-Create the project.
-
-```
-cargo new generate-random-number
-```
-
 ## Dependencies
 
 ```toml
-[package]
-name = "generate-random-number"
-version = "0.1.0"
-edition = "2021"
-
 [dependencies]
 axum = "0.3"
 rand = "0.8"
@@ -76,13 +54,7 @@ async fn handler(Query(range): Query<RangeParameters>) -> Html<String> {
 
 ## Run
 
-Execute this command in workspace directory:
-
-```
-cargo run --bin generate-random-number
-```
-
-Enter `http://localhost:3000/?start=50&end=100` on your browser.
+Run the program then enter `http://localhost:3000/?start=50&end=100` on your browser.
 
 # [Next](05-include-html.md)
 
@@ -91,4 +63,3 @@ Include html from file in compile time.
 [axum]: https://crates.io/crates/axum
 [rand]: https://crates.io/crates/rand
 [serde]: https://crates.io/crates/serde
-[workspace toml]: https://github.com/programatik29/axum-tutorial/blob/master/workspace/Cargo.toml
