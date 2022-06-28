@@ -4,7 +4,7 @@
 
 ```toml
 [dependencies]
-axum = "0.4"
+axum = "0.5"
 rand = "0.8"
 serde = { version = "1", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
