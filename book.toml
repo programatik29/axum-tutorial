@@ -6,5 +6,8 @@ language = "en"
 multilingual = false
 src = "src"
 
+[rust]
+edition = "2018"
+
 [output.html]
 git-repository-url = "https://github.com/programatik29/axum-tutorial"
