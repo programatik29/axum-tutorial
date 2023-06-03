@@ -1,7 +1,10 @@
 # Basics
 
-In this chapter, basics of axum web apps will be explained in a way that allows
-you to use axum right away. (which we encourage you to do so you can learn even
-faster)
+In this chapter, basics of an axum web app will be explained. We encourage you
+to write code as you learn. You can try to do challenges if provided at the
+bottom or you can try to do your own challenges.
 
-Concepts explained here will be covered in detail in next chapters.
+### Development - Todo
+
+This chapter covers basics to get you started. More details about topics are
+provided in next chapters.
