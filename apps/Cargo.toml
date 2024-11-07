@@ -1,0 +1,9 @@
+[workspace]
+
+members = [
+    "hello-world",
+    "extract-ip",
+]
+
+# to stop cargo screaming some warning
+resolver = "2"

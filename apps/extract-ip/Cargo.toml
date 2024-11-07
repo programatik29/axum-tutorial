@@ -1,0 +1,12 @@
+[package]
+name = "extract-ip"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# "?" is shorter than ".unwrap()"
+anyhow = "1"
+# full features because of laziness
+tokio = { version = "1", features = ["full"] }
+# import the greatest framework
+axum = "0.7"
