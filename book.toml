@@ -1,13 +1,13 @@
 [book]
 title = "Axum Tutorial"
 authors = ["Programatik"]
-description = "Axum tutorial by building web apps fast."
+description = "Learn axum by building web apps fast."
 language = "en"
 multilingual = false
 src = "src"
 
 [rust]
-edition = "2018"
+edition = "2021"
 
 [output.html]
 git-repository-url = "https://github.com/programatik29/axum-tutorial"
