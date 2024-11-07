@@ -1,0 +1,390 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Axum Tutorial</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Learn axum by coding web applications quickly.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <div class="sidebar-scrollbox"></div>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <script async src="toc.js"></script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Axum Tutorial</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/programatik29/axum-tutorial" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>This tutorial will explain how to build web applications with <a href="https://github.com/tokio-rs/axum">axum</a> fast while
+teaching basic concepts along the way. Props to <a href="https://github.com/davidpdrsn">David Pedersen</a> for developing
+this great framework.</p>
+<p>If you are new to <a href="https://www.rust-lang.org/">rust</a>, you should read <a href="https://doc.rust-lang.org/book/">the book</a> before continuing.</p>
+<p>Lets get started!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello World</a></h1>
+<p>A simple hello world application looks like this:</p>
+<p>Cargo.toml</p>
+<pre><code class="language-toml">[package]
+name = "hello-world"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# "?" is shorter than ".unwrap()"
+anyhow = "1"
+# full features because of laziness
+tokio = { version = "1", features = ["full"] }
+# import the greatest framework
+axum = "0.7"
+</code></pre>
+<p>main.rs</p>
+<pre><pre class="playground"><code class="language-rust  no_run edition2018">use axum::{routing::get, Router};
+use std::net::SocketAddr;
+use tokio::net::TcpListener;
+
+#[tokio::main]
+async fn main() -&gt; anyhow::Result&lt;()&gt; {
+    // pass incoming GET requests on "/hello-world" to "hello_world" handler.
+    let app = Router::new().route("/hello-world", get(hello_world));
+
+    // write address like this to not make typos
+    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    let listener = TcpListener::bind(addr).await?;
+
+    axum::serve(listener, app.into_make_service()).await?;
+
+    Ok(())
+}
+
+async fn hello_world() -&gt; &amp;'static str {
+    "Hello, world!"
+}</code></pre></pre>
+<p>If we enter "http://localhost:3000/hello-world" to browser, we can see "Hello,
+world!" text coming up.</p>
+<p>What is going on in this example?</p>
+<pre><pre class="playground"><code class="language-rust  no_run edition2018"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let app = Router::new().route("/hello-world", get(hello_world));
+<span class="boring">}</span></code></pre></pre>
+<p>This part is easy. Does the request have "/hello-world" in its URL? Okay route
+it to method router (in this case "get"). Does the request have "GET" method?
+Okay route it to "hello_world" <em>handler</em>.</p>
+<p>NOTE: You can add more routes by calling <code>.route</code> again on <code>Router</code>.</p>
+<p>Lets look at <code>hello_world</code> function which we will now refer as <code>hello_world</code> handler.</p>
+<pre><pre class="playground"><code class="language-rust  no_run edition2018"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>async fn hello_world() -&gt; &amp;'static str {
+    "Hello, world!"
+}
+<span class="boring">}</span></code></pre></pre>
+<p>This function can be used as a <em>handler</em> because it is async and its return
+type implements <a href="https://docs.rs/axum/0.7.7/axum/response/trait.IntoResponse.html#impl-IntoResponse-for-%26str"><code>IntoResponse</code></a> trait. We will look into <a href="https://docs.rs/axum/0.7.7/axum/response/trait.IntoResponse.html#impl-IntoResponse-for-%26str"><code>IntoResponse</code></a>
+trait in detail later. For now lets use this powerful knowledge to add a
+functionality to our app.</p>
+<p>It would be cool if we could redirect all URLs coming to our application to
+<code>hello_world</code> right?</p>
+<p>By randomly traveling in <a href="https://docs.rs/axum/0.7.7/axum/index.html">axum docs</a> (which is how you will operate from now
+on) I found us <a href="https://docs.rs/axum/0.7.7/axum/routing/struct.Router.html#method.fallback"><code>Router::fallback</code></a> method and <a href="https://docs.rs/axum/0.7.7/axum/response/struct.Redirect.html"><code>Redirect</code></a> type we can use.</p>
+<pre><pre class="playground"><code class="language-rust  no_run edition2018"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use axum::{response::Redirect, routing::get, Router};
+//          ^ import this ^
+
+let app = Router::new()
+    .route("/hello-world", get(hello_world))
+    .fallback(anything_else); // &lt;-- add that fallback
+
+// create an easy handler
+async fn anything_else() -&gt; Redirect {
+    Redirect::to("/hello-world")
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Do these changes, run the app then go to "http://localhost:3000/plz_no_404" and
+boom! It redirects us to "/hello-world".</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="extractors"><a class="header" href="#extractors">Extractors</a></h1>
+<p>Axum provides extractors to get/extract data about requests to our handlers. To
+qualify as a handler, parameters of a function must implement
+<a href="https://docs.rs/axum/0.7.7/axum/extract/trait.FromRequestParts.html"><code>FromRequestParts</code></a> last parameter can implement <a href="https://docs.rs/axum/0.7.7/axum/extract/trait.FromRequest.html"><code>FromRequest</code></a> (meaning it
+also implements <a href="https://docs.rs/axum/0.7.7/axum/extract/trait.FromRequestParts.html"><code>FromRequestParts</code></a>). There are two traits because some parts
+of request for example body can only be extracted once (can be cloned later).</p>
+<p>In previous hello world example we didn't need any info about requests for our
+app to run. I was thinking, "Okay, I need to build some random app to explain
+readers how extractors work." What did I do? Of course I found something by
+randomly traveling in <a href="https://docs.rs/axum/0.7.7/axum/index.html">axum docs</a>.</p>
+<p>Every developer needs a way to get their clients ip address and sell it to big
+corporations. But of course as ethical developers, we will not do that. Instead
+we will explain the client we got their ip address and they can possibly be
+identified by harmful parties and to prevent that they need to buy our VPN
+service.</p>
+<p>Here is a basic example of our app:</p>
+<pre><pre class="playground"><code class="language-rust  no_run edition2018">use axum::{extract::ConnectInfo, routing::get, Router};
+use std::net::SocketAddr;
+use tokio::net::TcpListener;
+
+#[tokio::main]
+async fn main() -&gt; anyhow::Result&lt;()&gt; {
+    let app = Router::new().route("/", get(index));
+
+    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    let listener = TcpListener::bind(addr).await?;
+
+    axum::serve(
+        listener,
+        app.into_make_service_with_connect_info::&lt;SocketAddr&gt;(),
+    )
+    .await?;
+
+    Ok(())
+}
+
+async fn index(ConnectInfo(addr): ConnectInfo&lt;SocketAddr&gt;) -&gt; String {
+    format!(
+        "Your ip address is \"{addr}\".\n\
+         You are in immediate danger of getting identified by bad people.\n\
+         Thankfully we have a VPN service to hide your ip. \n\
+         Visit this link to download it \"http://localhost:3000/average_joe_absolutely_needs_vpn\""
+    )
+}</code></pre></pre>
+<p>To be able to get ip address with <code>ConnectInfo</code> extractor we need this
+boilerplate code:</p>
+<pre><pre class="playground"><code class="language-rust  no_run edition2018"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// copypasta for future projects
+axum::serve(
+    listener,
+    app.into_make_service_with_connect_info::&lt;SocketAddr&gt;(),
+)
+.await?;
+<span class="boring">}</span></code></pre></pre>
+<p>Lets take a look at function signature:</p>
+<pre><pre class="playground"><code class="language-rust  no_run edition2018"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>async fn index(ConnectInfo(addr): ConnectInfo&lt;SocketAddr&gt;) -&gt; String
+<span class="boring">}</span></code></pre></pre>
+<p>You might not be familiar of pattern matching done for function parameter
+"addr" here. Lets explain shortly.</p>
+<p><code>ConnectInfo</code> is a struct. It is defined something like <code>struct ConnectInfo&lt;T&gt;(T);</code>. It has paranthesis instead of braces and can take any type
+like a tuple with single item. (example <code>let something = ConnectInfo(String);</code>)
+By using tuple structs in function parameters you can match inner item. If we
+used <code>addr: ConnectInfo&lt;SocketAddr&gt;</code> instead we would have to do <code>let addr = addr.0;</code> in the code below to achieve the same thing.</p>
+<p>To simplify, for now lets talk about it using the other syntax.</p>
+<pre><pre class="playground"><code class="language-rust  no_run edition2018"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>async fn index(addr: ConnectInfo&lt;SocketAddr&gt;) -&gt; String
+<span class="boring">}</span></code></pre></pre>
+<p><code>addr</code> parameter type needs to implement <a href="https://docs.rs/axum/0.7.7/axum/extract/trait.FromRequest.html"><code>FromRequest</code></a> or
+<a href="https://docs.rs/axum/0.7.7/axum/extract/trait.FromRequestParts.html"><code>FromRequestParts</code></a> for this function to qualify as a handler. <a href="https://docs.rs/axum/0.7.7/axum/extract/struct.ConnectInfo.html#impl-FromRequestParts%3CS%3E-for-ConnectInfo%3CT%3E"><code>ConnectInfo</code></a>
+implements it if we use it like how it is documented.</p>
+<p>We are dynamically creating a string to add ip address inside. So we need to
+use <code>String</code> type which implements <a href="https://docs.rs/axum/0.7.7/axum/response/trait.IntoResponse.html#impl-IntoResponse-for-String"><code>IntoResponse</code></a>.</p>
+<p>In the handler code, its basically just <code>format!</code> macro to create a string so
+nothing new there.</p>
+<p>Our app works fine but its just plaintext. Lets improve it by doing some html.</p>
+<pre><pre class="playground"><code class="language-rust  no_run edition2018"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// change return type to `Html&lt;String&gt;` to let browser know we are sending html
+async fn index(ConnectInfo(addr): ConnectInfo&lt;SocketAddr&gt;) -&gt; Html&lt;String&gt; {
+    let html = format!(
+        "&lt;h1&gt;Your ip address is: \"{addr}\"&lt;/h1&gt;\n\
+         &lt;h2&gt;You are in immediate danger of getting identified by bad people.&lt;/h2&gt;\n\
+         &lt;h2&gt;Thankfully we have a VPN service to hide your ip.&lt;/h2&gt;\n\
+         &lt;h2&gt;Visit &lt;a href=\"http://localhost:3000/average_joe_absolutely_needs_vpn\"&gt;THIS&lt;/a&gt; link to download it.&lt;/h2&gt;"
+    );
+
+    // create `Html` type like this
+    Html(html)
+}
+<span class="boring">}</span></code></pre></pre>
+<h3 id="challenge"><a class="header" href="#challenge">Challenge</a></h3>
+<p>Create a <code>/average_joe_absolutely_needs_vpn</code> page returning html to convince
+the <del>poor guy</del> client to buy our VPN service.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contributors"><a class="header" href="#contributors">Contributors</a></h1>
+<ul>
+<li>Eray Karatay (@programatik29)</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
